@@ -76,7 +76,7 @@ export function createApp(deps: AppDeps) {
   app.doc('/openapi.json', {
     openapi: '3.1.0',
     info: {
-      title: 'elice-rag',
+      title: 'react-rag',
       version: '0.1.0',
       description: 'Citation 기반 React 문서 QA API',
     },

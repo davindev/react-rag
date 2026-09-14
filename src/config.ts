@@ -4,7 +4,7 @@ import { RETRIEVER_KINDS } from './retrieval/index.js';
 
 // 시스템 경계(환경 변수)에서만 런타임 검증을 수행한다.
 const envSchema = z.object({
-  ELICE_API_KEY: z.string().min(1),
+  LLM_API_KEY: z.string().min(1),
   // 엘리스 ML API는 모델(엔드포인트)마다 base_url이 다르므로 역할별로 받는다.
   // (mlapi.run/{endpoint-id}/v1 — 모델별 endpoint-id가 상이)
   LLM_MODEL: z.string().min(1),
@@ -35,10 +35,10 @@ const envSchema = z.object({
     ),
   DATABASE_URL: z.url(),
   PORT: z.coerce.number().int().positive().default(3000),
-  /** retrieval 최고 점수 하한(점수 의미는 retriever별 상이). 기본 0(비활성) — Part B Eval 데이터로 튜닝한다 */
+  /** retrieval 최고 점수 하한(점수 의미는 retriever별 상이). 기본 0(비활성) — Eval 데이터로 튜닝한다 */
   RETRIEVAL_MIN_SCORE: z.coerce.number().min(0).max(1).default(0),
   TOP_K: z.coerce.number().int().positive().default(5),
-  /** Part C 실험 토글: 서버·Eval이 공유하는 검색 전략 선택 */
+  /** 검색 전략 실험 토글: 서버·Eval이 공유하는 검색 전략 선택 */
   RETRIEVER: z.enum(RETRIEVER_KINDS).default('dense'),
 });
 
@@ -79,7 +79,7 @@ export function endpointsOf(config: Config): Record<string, string> {
 /** createOpenAiCompatibleClient에 넘길 클라이언트 설정을 config에서 구성 */
 export function clientConfigOf(config: Config): ClientConfig {
   return {
-    apiKey: config.ELICE_API_KEY,
+    apiKey: config.LLM_API_KEY,
     endpoints: endpointsOf(config),
     noTemperatureModels: config.NO_TEMPERATURE_MODELS,
   };

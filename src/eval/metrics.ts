@@ -3,7 +3,7 @@ import type { Citation } from '../rag/pipeline.js';
 /**
  * 결정적(비-LLM) metric 계산.
  * 검색·인용 평가는 문서(docPath) 단위로 매칭한다 — 청크 경계는 청킹 전략에 따라
- * 달라지므로 청크 단위 gold label은 Part C의 청킹 실험과 양립할 수 없기 때문.
+ * 달라지므로 청크 단위 gold label은 청킹 전략 실험과 양립할 수 없기 때문.
  */
 
 /** Recall@k: 기대 근거 문서 중 top-k 검색 결과에 포함된 비율 */

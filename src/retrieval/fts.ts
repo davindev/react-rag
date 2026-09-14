@@ -2,7 +2,7 @@ import type pg from 'pg';
 import type { StoredChunk } from '../db.js';
 
 /**
- * Postgres full-text search 기반 키워드 검색 (Part C hybrid 실험용).
+ * Postgres full-text search 기반 키워드 검색 (hybrid 검색 실험용).
  * websearch_to_tsquery는 자연어 질의를 안전하게 tsquery로 변환한다.
  * score는 ts_rank 값으로 cosine similarity와 스케일이 다르지만,
  * RRF 융합은 순위만 사용하므로 문제가 되지 않는다.

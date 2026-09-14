@@ -1,7 +1,9 @@
+name: react-rag
+
 services:
   db:
     image: pgvector/pgvector:pg17
-    container_name: elice-rag-db
+    container_name: react-rag-db
     environment:
       POSTGRES_USER: rag
       POSTGRES_PASSWORD: rag

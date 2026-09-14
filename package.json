@@ -1,5 +1,5 @@
 {
-  "name": "elice-rag",
+  "name": "react-rag",
   "version": "0.1.0",
   "description": "Citation-based RAG QA service over React docs, with a self-built eval harness",
   "type": "module",

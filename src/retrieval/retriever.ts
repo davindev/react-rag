@@ -2,7 +2,7 @@ import type { StoredChunk } from '../db.js';
 
 /**
  * 검색 전략 경계 인터페이스.
- * Part C에서 검색 전략(RETRIEVER_KINDS 참조)을 동일 파이프라인·동일 Eval로
+ * 검색 전략(RETRIEVER_KINDS 참조)을 동일 파이프라인·동일 Eval로
  * 교체 비교하기 위해 검색을 이 인터페이스 뒤로 분리한다.
  *
  * 계약: 반환 배열은 관련도 내림차순이다. 단 `score`의 스케일·의미는 구현마다

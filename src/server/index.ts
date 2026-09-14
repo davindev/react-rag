@@ -23,5 +23,5 @@ const app = createApp({
 });
 
 serve({ fetch: app.fetch, port: config.PORT }, (info) => {
-  console.log(`elice-rag 서버 시작: http://localhost:${info.port} (Swagger UI: /doc)`);
+  console.log(`react-rag 서버 시작: http://localhost:${info.port} (Swagger UI: /doc)`);
 });
